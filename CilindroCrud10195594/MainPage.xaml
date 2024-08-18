@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CilindroCrud10195594.MainPage"
+             Title="Ejercicio 10">
+    
+            <!--Ejercicio 10 : Construya un diagrama de flujo tal que dado como datos el radio y la altura
+                                           de un cilindro , calcule e imprima el área y el volumen . -->
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="40" Spacing="25">
+            <Image Source="cilindro.jpg" HeightRequest="160" Aspect="AspectFit" SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Entry x:Name="radioEntry" Placeholder="Digite el radio del cilindro : " Keyboard="Numeric"/>
+            <Entry x:Name="alturaEntry" Placeholder="Digite la altura del cilindro :" Keyboard="Numeric"/>
+            <Label x:Name="labelresultadoArea" FontSize="Small" HorizontalOptions="Center" Text="Áreal del cilindro "/>
+            <Label x:Name="labelresultadoVolumen" FontSize="Small" HorizontalOptions="Center" Text="Volumen del cilindro"/>
+            <Button x:Name="sumarBtn" Text="Cálcular Operación" Clicked="calcularBtn_Clicked" HorizontalOptions="Center"/>
+
+            <ListView x:Name="Listview" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="Listview_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+                                <Label Text="{Binding Radio}" FontSize="17" FontAttributes="Bold"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Altura}"/>
+                                    <Label Grid.Column="2" Text="{Binding ResultadoVolumen}" FontAttributes="Bold"/>
+                                    <Label Grid.Column="6" Text="{Binding ResultadoArea}" FontAttributes="Bold"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
